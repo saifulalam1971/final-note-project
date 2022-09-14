@@ -1,0 +1,36 @@
+<div class="main-container" fxLayout="column">
+  <div class="heading">
+    <h2>Note Mate</h2>
+  </div>
+  <div class="body-container" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <div>
+      <input type="text" [(ngModel)]="searchNote" class="m-0 p-0 note-search" placeholder="title"  name="title" (input)="noteSearch()">
+      <div class="card-show">
+        <div *ngFor="let item of allNoteValue">
+          <mat-card class='edit_hover_class' *ngIf="item.title!='' ">
+            <div   fxLayout="row" fxLayoutAlign="space-between center" >
+              <p >{{item.title}}</p>
+              <mat-icon (click)="deleteNote(item.title)" >clear</mat-icon>
+            </div>
+            
+              <p>{{item.note}}</p>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+    <div class="add-btn" (click)="addNoteModal()" >
+      <p>ADD</p>
+    </div>
+  </div>
+</div>
+<!-- *ngIf="!isSearch|| (isSearch && searchNote==item.title)" -->
+<!-- <div *ngFor="let item of noteData">
+  <mat-card class='edit_hover_class' *ngIf="!isSearch|| (isSearch && searchNote==item.title)">
+    <div   fxLayout="row" fxLayoutAlign="space-between center" >
+      <p >{{item.title}}</p>
+      <mat-icon (click)="deleteUser(item.id)" >clear</mat-icon>
+    </div>
+    
+      <p>{{item.note}}</p>
+  </mat-card>
+</div> -->

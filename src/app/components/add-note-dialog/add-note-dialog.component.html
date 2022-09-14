@@ -1,0 +1,22 @@
+<div class="modal-comtainer" fxLayout="column">
+    <div>
+        <form [formGroup]="addData" (ngSubmit)="saveNote()">
+            <div class="note-title m-0 p-0" fxLayout="column">
+                <span class="m-0 p-0">Title</span>
+                <input type="text" class="m-0 p-0" placeholder="title" formControlName="title" name="title">
+            </div>
+            <div class="note-body" fxLayout="column">
+                <span >Body</span>
+                <textarea matInput formControlName="note"  placeholder="Write Note" name="body"></textarea>
+            </div>
+        </form>
+    </div>
+
+    <div class="button-container" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="8px">
+        <button class="cancel-btn" mat-dialog-close><span>Cancel</span></button>
+        <button class="save-btn"  (click)="saveNote()" mat-dialog-close><span>Save</span></button>
+        <!-- <span class="button-text-sm">Cancel</span>
+        <span class="button-text-sm">Save</span> -->
+    </div>
+   
+</div>
